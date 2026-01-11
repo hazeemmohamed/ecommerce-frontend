@@ -3,7 +3,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import PaymentForm from "./PaymentForm";
 import React from "react";
 
-const stripePromise = loadStripe(`${import.meta.env.VITE_API_URL}`);
+const stripePromise = loadStripe(`${import.meta.env.VITE_STRIPE_PUBLIC_KEY}`);
 
 function Checkout({ cartItems, setCartItems }) {
   return (
