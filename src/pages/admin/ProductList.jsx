@@ -47,10 +47,10 @@ function ProductList() {
         </thead>
 
         <tbody>
-          {products.map((product) =>{ 
-            console.log("IMAGE VALUE 👉", p.image);
+          {products.map(product => 
+            console.log("IMAGE VALUE 👉", product.image),
 
-          return(
+          (
             <tr key={product._id} className="border-t">
               <td className="p-4">{product.name}</td>
               <td className="p-4">${product.price}</td>
@@ -69,7 +69,7 @@ function ProductList() {
                 </button>
               </td>
             </tr>
-          )})}
+          ))}
         </tbody>
       </table>
 
