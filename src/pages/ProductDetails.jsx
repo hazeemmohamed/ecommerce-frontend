@@ -111,9 +111,6 @@ function ProductDetails({ products = [], cartItems, setCartItems }) {
             >
               Add to Cart
             </button>
-            <button className="px-6 py-3 border rounded-lg hover:bg-gray-100 transition">
-              Buy Now
-            </button>
           </div>
         </div>
       </div>
