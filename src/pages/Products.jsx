@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Search from "../components/Search";
 
 function Products() {
   const location = useLocation();
@@ -14,6 +15,7 @@ function Products() {
   const [pages, setPages] = useState(1);
 
   useEffect(() => {
+    
     const fetchProducts = async () => {
       const { data } = await axios.get(
         `${import.meta.env.VITE_API_URL}/api/products?keyword=${keyword}&page=${page}`
@@ -32,6 +34,7 @@ function Products() {
 
   return (
     <div className="bg-gray-50 min-h-screen px-4 sm:px-6 lg:px-8 py-10">
+      
       <h1 className="text-3xl font-bold mb-10 text-gray-800 text-center">
         Featured Products
       </h1>

@@ -1,5 +1,6 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import auth from "../config/firebase";
 
 // const products = [
 //   {
@@ -22,6 +23,18 @@ function ProductDetails({ products = [], cartItems, setCartItems }) {
   const { id } = useParams();
   const product = products.find((p) => p._id === id);
 
+  const navigate= useNavigate()
+  const [user, setUser] = useState(null)
+
+  useEffect(()=>{
+      window.scrollTo(0, 0);
+
+      const loggedUser = auth.onAuthStateChanged((currentUser)=>{
+        setUser(currentUser)
+      })
+      return loggedUser
+  },[])
+
   const [quantity, setQuantity] = useState(1);
 
   if (!product) {
@@ -40,6 +53,16 @@ function ProductDetails({ products = [], cartItems, setCartItems }) {
   }
 
   const handleAddToCart = () => {
+    if(!user){
+      {
+        alert("Login to add the Items to your cart")
+          window.scrollTo(0, 0);
+
+        navigate('/login')
+        return
+      }
+    }
+
     const existing = cartItems.find(
       (item) => item.product._id === product._id
     );

@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import React from "react"
+import {FaSearch} from "react-icons/fa"
+
 
 function Search (){
      const navigate = useNavigate()
@@ -10,7 +12,7 @@ function Search (){
     navigate('/?keyword='+searchKeyword)
   }
     return(
-        <div className="hidden md:flex flex-1 mx-10">
+        <div className="hidden md:flex flex-1">
           <input
             type="text"
             placeholder="Search for products..."
@@ -22,7 +24,7 @@ function Search (){
           className="px-6 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700"
           onClick={handleSearch}
           >
-            Search
+            <FaSearch/>
           </button>
         </div>
     )

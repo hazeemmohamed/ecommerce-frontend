@@ -36,7 +36,6 @@ function Navbar({ cartItems, setCartItems }) {
           MobileWorld
         </Link>
 
-        {/* Search (Desktop only) */}
         <div className="hidden md:block w-1/3">
           <Search />
         </div>
@@ -44,7 +43,6 @@ function Navbar({ cartItems, setCartItems }) {
         {/* RIGHT SIDE */}
         <div className="flex items-center gap-4">
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-gray-700 hover:text-blue-600">
               Products
@@ -73,7 +71,6 @@ function Navbar({ cartItems, setCartItems }) {
             )}
           </div>
 
-          {/* Cart (Always visible) */}
           <Link to="/cart" className="relative flex items-center text-gray-700">
             🛒
             <span className="ml-1 hidden md:inline">Cart</span>
@@ -90,10 +87,11 @@ function Navbar({ cartItems, setCartItems }) {
             ☰
           </button>
         </div>
-      </nav>
+      </nav>  
 
       {/* MOBILE DROPDOWN */}
       {menuOpen && (
+        
         <div className="md:hidden bg-white border-t shadow-md px-6 py-4 space-y-4">
           <Link to="/" onClick={() => setMenuOpen(false)} className="block">
             Products
@@ -124,7 +122,9 @@ function Navbar({ cartItems, setCartItems }) {
           )}
         </div>
       )}
+      
     </header>
+    
   );
 }
 
