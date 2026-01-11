@@ -7,7 +7,7 @@ function ProductList() {
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
   const [pages, setPages] = useState(1);
-  const limit = 10; // admin page limit
+  const limit = 10; 
 
   useEffect(() => {
     fetchProducts(page);
