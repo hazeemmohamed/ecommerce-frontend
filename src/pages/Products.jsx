@@ -40,6 +40,7 @@ function Products() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {products.length > 0 ? (
           products.map((p) => (
+            
             <div
               key={p._id}
               className="bg-white rounded-2xl shadow hover:shadow-xl transition flex flex-col"
