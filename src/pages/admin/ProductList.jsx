@@ -48,7 +48,6 @@ function ProductList() {
 
         <tbody>
           {products.map(product => 
-            console.log("IMAGE VALUE 👉", product.image),
 
           (
             <tr key={product._id} className="border-t">
