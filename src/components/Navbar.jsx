@@ -33,7 +33,7 @@ function Navbar({ cartItems, setCartItems }) {
 
         {/* Logo */}
         <Link to="/" className="text-2xl font-extrabold text-blue-600">
-          MyShop
+          MobileWorld
         </Link>
 
         {/* Search (Desktop only) */}
