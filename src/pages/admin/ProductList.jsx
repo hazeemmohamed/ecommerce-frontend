@@ -48,7 +48,6 @@ function ProductList() {
 
         <tbody>
           {products.map(product => 
-
           (
             <tr key={product._id} className="border-t">
               <td className="p-4">{product.name}</td>
