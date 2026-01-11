@@ -48,9 +48,7 @@ function Products() {
               <div className="h-52 bg-gray-100 rounded-t-2xl flex items-center justify-center">
                 <img
                   src={
-                    p.image
-                      ? `${import.meta.env.VITE_API_URL}${p.image}`
-                      : "/no-image.png"
+                    p.image || "/no-image.png"
                   }
                   alt={p.name}
                   className="max-h-full max-w-full object-contain p-4"

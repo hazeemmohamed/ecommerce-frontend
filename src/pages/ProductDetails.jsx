@@ -59,7 +59,7 @@ function ProductDetails({ products = [], cartItems, setCartItems }) {
         <div className="flex justify-center">
           <div className="bg-gray-100 rounded-xl w-full max-w-md h-[420px] flex items-center justify-center">
             <img
-              src={`${import.meta.env.VITE_API_URL}${product.image}`}
+              src={product.image}
               alt={product.name}
               className="max-h-full object-contain p-6 hover:scale-105 transition"
             />

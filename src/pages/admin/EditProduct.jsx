@@ -19,7 +19,7 @@ function EditProduct() {
   // Fetch product
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/products/${id}`)
+      .get(`${import.meta.env.VITE_API_URL}/api/products/${id}`)
       .then((res) => {
         setForm({
           name: res.data.product.name,
@@ -98,7 +98,7 @@ function EditProduct() {
         {/* Existing Image Preview */}
         {form.existingImage && (
           <img
-            src={`${import.meta.env.VITE_API_URL}${form.existingImage}`}
+            src={form.existingImage}
             alt="Product"
             className="h-32 object-cover rounded"
           />
