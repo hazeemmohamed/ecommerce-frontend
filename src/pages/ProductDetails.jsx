@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import auth from "../config/firebase";
+import axios from "axios";
 
 // const products = [
 //   {
@@ -19,13 +20,32 @@ import auth from "../config/firebase";
 //   }
 // ];
 
-function ProductDetails({ products = [], cartItems, setCartItems }) {
+function ProductDetails({ cartItems, setCartItems }) {
   const { id } = useParams();
-  const product = products.find((p) => p._id === id);
-
   const navigate= useNavigate()
   const [user, setUser] = useState(null)
+  const [loading, setLoading ] = useState(true)
 
+  const [product, setProduct] = useState(null)
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+    try{
+      
+      const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/api/products/${id}`)
+      setProduct(data.product);
+    }
+    catch{
+       setProduct(null);
+    }
+    finally{
+      setLoading(false)
+    }
+  }
+   
+
+    fetchProducts();
+  }, [id]);
   useEffect(()=>{
       window.scrollTo(0, 0);
 
@@ -37,12 +57,19 @@ function ProductDetails({ products = [], cartItems, setCartItems }) {
 
   const [quantity, setQuantity] = useState(1);
 
+  if (loading){
+     return (
+      <div className="min-h-screen flex items-center justify-center text-gray-500">
+        Loading.....
+      </div>
+    )
+  }
   if (!product) {
     return (
       <div className="min-h-screen flex items-center justify-center text-gray-500">
         Product not found
       </div>
-    );
+    )
   }
 
   const increaseQty = () => setQuantity((q) => q + 1);
